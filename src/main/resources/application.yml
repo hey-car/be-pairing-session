@@ -1,0 +1,90 @@
+db:
+  host: localhost
+  name: pairing-session
+  username: postgres
+  password: password
+  url: "jdbc:postgresql://${db.host}:5432/${db.name}"
+
+spring:
+  application.name: pairing-session
+  profiles.active: default
+  main:
+    banner-mode: off
+  datasource:
+    url: ${db.url}
+    driverClassName: org.postgresql.Driver
+    username: ${db.username}
+    password: ${db.password}
+  sql:
+    init:
+      platform: postgresql
+  flyway:
+    url: ${db.url}
+    user: ${db.username}
+    password: ${db.password}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database: POSTGRESQL
+    database-platform: org.hibernate.dialect.PostgreSQL10Dialect
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+
+management:
+  metrics:
+    export.statsd.host: localhost
+    enable.http.client.requests: false
+
+sentry:
+  dsn: ""
+  logging:
+    minimum-event-level: error
+    minimum-breadcrumb-level: debug
+
+shutdown.timer: 25
+
+auth.base-url: "http://auth-service"
+auth.jwk_public_endpoint: "uaa/jwk/public"
+security.oauth2.resource.jwk.key-set-uri: "${auth.base-url}/${auth.jwk_public_endpoint}"
+---
+spring:
+  config:
+    activate:
+      on-profile: [ "production" ]
+
+management.metrics.export.statsd.host: datadog-statsd.kube-system
+---
+spring:
+  config:
+    activate:
+      on-profile: [ "integrationTest", "dev" ]
+  jpa:
+    show-sql: false
+---
+spring:
+  config:
+    activate:
+      on-profile: [ "test" ]
+  sql:
+    init:
+      platform: h2
+  datasource:
+    driverClassName: org.h2.Driver
+  flyway:
+    driver-class-name: org.h2.Driver
+    enabled: false
+  jpa:
+    show-sql: false
+
+
+db:
+  host: localhost
+  name: pairing-session
+  username: sa
+  password: ""
+  url: "jdbc:h2:mem:;MODE=PostgreSQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE"
+
+
+---
+
