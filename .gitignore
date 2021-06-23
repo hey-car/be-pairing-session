@@ -1,0 +1,30 @@
+# Operating System Files
+
+*.DS_Store
+Thumbs.db
+
+# Build Files #
+
+bin
+target
+out/
+.gradle
+dependency-reduced-pom.xml
+
+# Eclipse Project Files #
+
+.classpath
+.project
+.settings
+
+# Wercker
+.wercker
+
+# IntelliJ IDEA Files #
+
+*.iml
+*.ipr
+*.iws
+*.idea
+classes/
+**/.DS_Store
