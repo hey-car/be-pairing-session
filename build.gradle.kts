@@ -86,6 +86,9 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 
+    //csv
+    implementation("com.opencsv:opencsv:5.2")
+
     // Database
     runtimeOnly("com.h2database:h2")
 
