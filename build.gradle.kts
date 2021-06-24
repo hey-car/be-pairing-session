@@ -86,6 +86,9 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 
+    // Database
+    runtimeOnly("com.h2database:h2")
+
     kapt("org.springframework.boot:spring-boot-configuration-processor")
 
     // Spring Boot Tests
