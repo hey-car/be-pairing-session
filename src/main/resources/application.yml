@@ -1,9 +1,9 @@
 db:
   host: localhost
   name: pairing-session
-  username: postgres
-  password: password
-  url: "jdbc:postgresql://${db.host}:5432/${db.name}"
+  username: sa
+  password: ""
+  url: "jdbc:h2:mem:"
 
 spring:
   application.name: pairing-session
@@ -12,20 +12,20 @@ spring:
     banner-mode: off
   datasource:
     url: ${db.url}
-    driverClassName: org.postgresql.Driver
+    driverClassName: org.h2.Driver
     username: ${db.username}
     password: ${db.password}
   sql:
     init:
-      platform: postgresql
+      platform: h2
   flyway:
     url: ${db.url}
     user: ${db.username}
     password: ${db.password}
-    driver-class-name: org.postgresql.Driver
+    driver-class-name: org.h2.Driver
   jpa:
-    database: POSTGRESQL
-    database-platform: org.hibernate.dialect.PostgreSQL10Dialect
+    database: H2
+    database-platform: org.hibernate.dialect.H2Dialect
     open-in-view: false
     hibernate:
       ddl-auto: validate
@@ -66,24 +66,14 @@ spring:
   config:
     activate:
       on-profile: [ "test" ]
-  sql:
-    init:
-      platform: h2
-  datasource:
-    driverClassName: org.h2.Driver
   flyway:
-    driver-class-name: org.h2.Driver
     enabled: false
   jpa:
     show-sql: false
 
 
 db:
-  host: localhost
-  name: pairing-session
-  username: sa
-  password: ""
-  url: "jdbc:h2:mem:;MODE=PostgreSQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE"
+  url: "jdbc:h2:mem:;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE"
 
 
 ---
