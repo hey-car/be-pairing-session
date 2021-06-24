@@ -86,6 +86,9 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 
+    // Postgres
+    runtimeOnly("org.postgresql:postgresql")
+
     kapt("org.springframework.boot:spring-boot-configuration-processor")
 
     // Spring Boot Tests
