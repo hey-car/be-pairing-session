@@ -80,6 +80,7 @@ tasks {
 dependencies {
     implementation(platform(SpringBootPlugin.BOM_COORDINATES))
     kapt(platform(SpringBootPlugin.BOM_COORDINATES))
+    implementation("org.projectlombok:lombok")
 
     // Spring Boot
     implementation("org.springframework.boot:spring-boot-starter-actuator")
