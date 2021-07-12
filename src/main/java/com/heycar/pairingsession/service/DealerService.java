@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -26,5 +27,17 @@ public class DealerService {
                     .year(listingDto.getYear())
                     .build());
         });
+    }
+
+    public List<ListingDto> getListings() {
+        List<Listing> listings = listingJpaRepository.findAllListings();
+        return listings.stream().map(listing -> ListingDto.builder()
+                .code(listing.getCode())
+                .make(listing.getMake())
+                .color(listing.getColor())
+                .model(listing.getModel())
+                .price(listing.getPrice())
+                .year(listing.getYear())
+                .build()).collect(Collectors.toList());
     }
 }
