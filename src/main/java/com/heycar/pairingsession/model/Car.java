@@ -46,11 +46,11 @@ public class Car {
     }
 
     private int dealerId;
-    private final String code;
-    private final String make;
-    private final int year;
-    private final String color;
-    private final int price;
+    private String code;
+    private String make;
+    private int year;
+    private String color;
+    private int price;
 
     public Car(){}
 
