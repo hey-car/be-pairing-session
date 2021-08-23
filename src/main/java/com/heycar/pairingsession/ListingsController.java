@@ -1,6 +1,4 @@
-package com.heycar.pairingsession.controller;
-
-import com.heycar.pairingsession.service.ListingsService;
+package com.heycar.pairingsession;
 
 public class ListingsController {
 
@@ -11,7 +9,7 @@ public class ListingsController {
     }
 
     /** Should accept the following request:
-     curl -X POST 'http://localhost:8080/listings/{dealerId}/' \
+     curl -X POST 'http://localhost:8080/< url comes here >' \
          -H 'content-type: application/json' \
          -H 'accept: application/json' \
          --data-raw '
@@ -33,7 +31,7 @@ public class ListingsController {
     }
 
     /** Should accept the following request:
-     curl 'http://localhost:8080/listings' \
+     curl 'http://localhost:8080/< url comes here >' \
         -H 'accept: application/json'
 
      Response: 200 OK, body:

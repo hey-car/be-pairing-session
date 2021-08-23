@@ -1,6 +1,4 @@
-package com.heycar.pairingsession.service;
-
-import com.heycar.pairingsession.repository.ListingsRepository;
+package com.heycar.pairingsession;
 
 public class ListingsService {
     private final ListingsRepository listingsRepository;

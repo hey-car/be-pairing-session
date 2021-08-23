@@ -1,4 +1,4 @@
-package com.heycar.pairingsession.model;
+package com.heycar.pairingsession;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
